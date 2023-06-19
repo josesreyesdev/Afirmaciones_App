@@ -1,0 +1,41 @@
+/* MODEL */
+1) El paquete MODEL contiene todas aquellas classes que modelen o presentan los datos
+-->Las clases de datos o data class => reciben por lo menos una propiedad en su constructor
+-->La clase de datos <<Affirmation>> representa una afirmacion y contiene un Id de recurso de string
+
+/* DATA */
+2) El paquete DATA prepara los datos
+-->Los datos que se muestran en una app pueden provenir de distintas fuentes, ej. dentro del proyecto
+    de la app o de una fuente externa que requiere conexion a internet para descargar datos. Como
+    resultado es posible que los datos no estén en formato exacto que se necesiten. El resto de la
+    app no deberia preocuparse por la ubicacion de los datos en formato original. Podemos y debemos
+    ocultar esta preparación de datos en una clase Datasource separada que prepara los datos de la app.
+-->La clase DataSource => prepara los datos desde su formato original, es una fuente de datos.
+
+/* RECYCLERVIEW */
+3) Agregar un recycler que contempla lo siguiente:
+-->item => un elemento de la lista para mostrar
+-->Adapter => Toma datos y los prepara para que el recyclerView los muestre
+-->ViewHolders => Conjunto de vistas para que el recyclerView lo use y reutilice a fin de mostrar la lista de objetos
+-->RecyclerView => Vistas en la pantalla
+
+4)  Agrego un recyclerView en el diseño donde se implementara
+    ->FrameLayout => Se usa para mantener una sola vista secundaria ***RecyclerView***
+    ->ConstraintLayout => Ideal y flexible cuando se requiere posicionar varias vistas secundarias
+
+5) RecyclerView admite mostrar elementos de diferentes formas, como una lista lineal o una cuadricula.
+--->Se controla mediante un ***layoutManager*** => linearLayoutManager, GridLayoutManager, StaggeredGridLayoutManager
+--->scrollbars => barra de desplazamiento => horizontal o vertical
+
+/* ADAPTER */
+6) Adapter es un patron de diseño que adapta los datos en algo que pueda usar recyclerView
+-->Creacion del diseño para que use el recyclerView llamado <<list_item.xml>>
+-->Paquete <<adapter>> que prepara los datos para mostrarse en las vistas
+-->Clase <<ItemAdapter>> => Adaptador de recyclerView que recibe la lista de afirmaciones, y el contexto que
+   resuelve los recursos de strings, está y otra informacion se almacenan en una instancia de objeto Context.
+-->ViewHolder => Un viewHolder representa una sola vista de elementos de lista en recyclerView
+              => Interaccion entre la vista de elementos y el recyclerView
+              => creo la clase <<ItemViewHolder>> dentro de la clase <<ItemAdapter>> a esto se le llama clase anidada
+              => Anulo sus metodos y las implemento
+
+7) Modifico el MainActivity para usar el recyclerView
