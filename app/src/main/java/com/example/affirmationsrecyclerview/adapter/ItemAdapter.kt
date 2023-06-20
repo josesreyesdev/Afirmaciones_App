@@ -11,8 +11,9 @@ import com.example.affirmationsrecyclerview.R
 import com.example.affirmationsrecyclerview.model.Affirmation
 
 //El contexto es para resolver recursos de strings que se almacenan en el Context
-class ItemAdapter( private val context: Context,
-                   private val dataset: List<Affirmation>
+class ItemAdapter(
+    private val context: Context,
+    private val dataset: List<Affirmation>
     ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     //clase anidada, los viewHolder representan cada vista de mi lista
@@ -32,7 +33,6 @@ class ItemAdapter( private val context: Context,
 
     //Reemplaza el contenido de una vista de elementos de lista, con una vista y su posicion
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-
         val item = dataset[position]
         //update las vistas del container
         holder.textView.text = context.resources.getString(item.stringResourceId)
